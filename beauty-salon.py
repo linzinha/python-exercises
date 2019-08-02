@@ -14,7 +14,23 @@ facialHair = ["lip wax", "eyebrow wax", "full face wax", "shave", "facial hair t
 
 bodyHair = ["bikini", "brazilian", "underarm", "shoulders", "stomach", "buttocks", "half legs", "full legs", "half arms", "full arms", "chest", "back", "stomach strip", "chest and stomach", "back and shoulders", "full body"]
 
+facialTreatment = ["deep pore cleansing facial", "brightening facial", "clarity complexion treatment", "red carpet facial", "advanced hydrafacial", "rejuvination treatment", "opulence treatment"]
 
+facialTreatmentEnhancements = ["healing jade treatment"]
+
+lightTherapies = ["micro photo treatment", "lhe photo rejuvination", "lhe acne", "lhe lifting and tightening"]
+
+peels = ["vi peel", "vi acne peel", "modified jessner peel", "cosmederm 50% glycolic peel"]
+
+spaRituals = ["signature clarifying spa ritual", "organic euphoria spa ritual", "head to toe spa ritual", "transformational spa ritual"]
+
+bodyCocktail = ["cucumber honey body cocktail", "mineral mud body cocktail", "warm lavender body cocktail", "organic moroccan earth body cocktail"]
+
+saltSugarSctubs = ["exotic rose + jasmine", "the greek", "the Moroccan", "traditional sea salt scrub"]
+
+massage = ["return to nature", "manly-sage", "four handed", "ultimate relax", "hot stone", "herbal heat", "craniosacral", "thai", "shiatsu", "swedish", ]
+
+bodyTreatmentEnhancements = ["eco-hin heat therapy", "detoxifying foot soak", "reflexology", "hot stone enhancement"]
 prices = [30, 25, 40, 20, 20, 35, 50, 35]
 
 last_week = [2, 3, 5, 8, 4, 4, 6, 2]
@@ -44,6 +60,6 @@ cuts_under_30 = [hairstyles[i] for i in range(len(hairstyles)) if new_prices[i] 
 
 print(cuts_under_30)
 
-
-
-
+# sources: http://www.olehenriksenspa.com/services/
+# https://www.bareskindetroit.com/facials
+# https://www.csalons.com/services/
