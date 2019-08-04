@@ -85,24 +85,61 @@ firstNames = {
 }
 
 lastNames = {
-    1: "Smith", 2: "Wang", 3: "Johnson", 4: "Li", 5: "Garcia", 6: "Patel", 7: "Miller", 8: "Nguyen", 9: "Atelier", 10: "Galván"
+    1: "Smith", 2: "Wang", 3: "Johnson", 4: "Li", 5: "Garcia", 6: "Patel", 7: "Miller", 8: "Nguyen", 9: "Atelier", 10: "Galván", 11: "Lauder", 12: "Astor", 13: "Lecompte", 14: "Stevenson", 15: "Lauren", 16: "Jones", 17: "Brings", 18: "Sarra", 19: "Reda", 20: "Summ"
 }
 
-salutation2 = {
+gender = {
     1: 'Mr.',
     2: 'Mrs.',
     3: 'Ms.',
-    4: 'Miss'
+    4: 'Miss',
+    5: 'Mx.'
 }
 owner = random.randint(1, 10)
-salutation = random.randint(1, 4)
-print('\nAs you walk into  Luxe; ' + (lastFancyNames[owner]) + ', an adjective pronoun with adjective color eyes greets you at the door.\n')
+customer = random.randint(1, 20)
+salutation = random.randint(1, 5)
+
+if gender[salutation] == "Mr.":
+    pronoun = "his"
+elif gender[salutation] == "Mx.":
+    pronoun = "their"
+else:
+    pronoun = "her"
+
+if gender[salutation] == "Mr.":
+    pronoun2 = "him"
+elif gender[salutation] == "Mx.":
+    pronoun2 = "them"
+else:
+    pronoun2 = "her"
+
+if gender[salutation] == "Mr.":
+    pronoun3 = "he"
+elif gender[salutation] == "Mx.":
+    pronoun3 = "they"
+else:
+    pronoun3 = "she"
+
+print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ', an adjective pronoun with adjective color eyes greets you at the door.\n')
 print('"Hi, you must be the new receptionist!"\n')
 print('"My name is ' + (firstFancyNames[owner]) + ' ' + (lastFancyNames[owner]) + ', and this is my spa and salon"')
 print('"Since it\'s your first day, I\'ll be showing you the ropes"')
 receptionist = input('"Tell me, what was your name again?" ')
 print('"So lovely to meet you, ' + receptionist + '."')
 print('"Ok, so it\'s just about 10 am, why don\'t you go turn on the sign?"')
-print('"Ah, right on time!" ' + salutation2[salutation] + )
+print('"Ah, right on time! ' + gender[salutation] + ' ' + lastNames[customer] + ' has arrived for ' + pronoun + ' Ten O\'Clock!"')
+
+if lastFancyNames[owner] == lastNames[customer]:
+    print('"Oh, ' + pronoun3 + ' is my cousin! Treat ' + pronoun2 + ' well."')
 
 
+def firstGreeting():
+    greeting = input('"Why dont you greet ' + pronoun2 + '?"').lower()
+    if 'hello' in greeting or 'hi' in greeting:
+        print('You smile nervously as ' + pronoun3 + ' approaches you.')
+        print('"Hello, ' + gender[salutation] + ' ' + lastNames[customer] + ', welcome to Luxe; ' + (lastFancyNames[owner]) + '."')
+    else:
+        print('"That\'s no way to greet a customer! Try again"')
+        firstGreeting()
+
+firstGreeting()
