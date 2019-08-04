@@ -85,7 +85,7 @@ firstNames = {
 }
 
 lastNames = {
-    1: "Lauder", 2: "Beauregard", 3: "Beaudelaire", 4: "Astor", 5: "Urbinati", 6: "Canalé", 7: "Lecompte", 8: "Hatzis", 9: "Atelier", 10: "Galván"
+    1: "Smith", 2: "Wang", 3: "Johnson", 4: "Li", 5: "Garcia", 6: "Patel", 7: "Miller", 8: "Nguyen", 9: "Atelier", 10: "Galván"
 }
 
 salutation2 = {
