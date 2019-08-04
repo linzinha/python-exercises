@@ -72,39 +72,37 @@ total_price = 0
 # https://www.csalons.com/services/
 # https://globalwellnesssummit.com/wp-content/uploads/Industry-Research/Asia-Pacific/2014-colliers-international-uae-spa-market.pdf
 
+firstFancyNames = {
+    1: "Andre", 2: "Michael", 3: "Jermaine", 4: "Susan", 5: "Stacey", 6: "Dominique", 7: "Alejandro", 8: "Ali", 9: "Fatima", 10: "Camila"
+}
+
+lastFancyNames = {
+    1: "Lauder", 2: "Beauregard", 3: "Beaudelaire", 4: "Astor", 5: "Urbinati", 6: "Canalé", 7: "Lecompte", 8: "Hatzis", 9: "Atelier", 10: "Galván"
+}
+
 firstNames = {
-    1: "Andre",
-    2: "Michael",
-    3: "Jermaine",
-    4: "Susan",
-    5: "Stacey",
-    6: "Dominique",
-    7: "Alejandro",
-    8: "Ali",
-    9: "Fatima",
-    10: "Camila"
+    1: "Tim", 2: "Michael", 3: "Jermaine", 4: "Susan", 5: "Stacey", 6: "Dominique", 7: "Alejandro", 8: "Ali", 9: "Fatima", 10: "Camila", 11: "Mohammed", 12: "Liam", 13: "Noah", 14: "Francesco", 15: "Jose", 16: "Maryam", 17: "Ximena", 18: "Emma", 19: "Eleni", 20: "Isabella"
 }
 
 lastNames = {
-    1: "Lauder",
-    2: "Beauregard",
-    3: "Beaudelaire",
-    4: "Astor",
-    5: "Urbinati",
-    6: "Canalé",
-    7: "Lecompte",
-    8: "Hatzis",
-    9: "Atelier",
-    10: "Galván"
+    1: "Lauder", 2: "Beauregard", 3: "Beaudelaire", 4: "Astor", 5: "Urbinati", 6: "Canalé", 7: "Lecompte", 8: "Hatzis", 9: "Atelier", 10: "Galván"
+}
+
+salutation2 = {
+    1: 'Mr.',
+    2: 'Mrs.',
+    3: 'Ms.',
+    4: 'Miss'
 }
 owner = random.randint(1, 10)
-print('\nAs you walk into  Luxe; ' + (lastNames[owner]) + ', an adjective pronoun with adjective color eyes greets you at the door.\n')
+salutation = random.randint(1, 4)
+print('\nAs you walk into  Luxe; ' + (lastFancyNames[owner]) + ', an adjective pronoun with adjective color eyes greets you at the door.\n')
 print('"Hi, you must be the new receptionist!"\n')
-print('"My name is ' + (firstNames[owner]) + ' ' + (lastNames[owner]) + ', and this is my spa and salon"')
+print('"My name is ' + (firstFancyNames[owner]) + ' ' + (lastFancyNames[owner]) + ', and this is my spa and salon"')
 print('"Since it\'s your first day, I\'ll be showing you the ropes"')
 receptionist = input('"Tell me, what was your name again?" ')
 print('"So lovely to meet you, ' + receptionist + '."')
 print('"Ok, so it\'s just about 10 am, why don\'t you go turn on the sign?"')
-
+print('"Ah, right on time!" ' + salutation2[salutation] + )
 
 
