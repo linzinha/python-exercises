@@ -89,15 +89,16 @@ lastNames = {
 }
 
 gender = {
-    1: 'Mr.',
-    2: 'Mrs.',
-    3: 'Ms.',
-    4: 'Miss',
-    5: 'Mx.'
+    1: 'Mr.', 2: 'Mrs.', 3: 'Ms.', 4: 'Miss', 5: 'Mx.'
+}
+
+eyeColor = {
+    1: 'green', 2: 'blue', 3: 'brown', 4: 'hazel', 5: 'gray'
 }
 owner = random.randint(1, 10)
 customer = random.randint(1, 20)
 salutation = random.randint(1, 5)
+eyes = random.randint(1, 5)
 
 if gender[salutation] == "Mr.":
     pronoun = "his"
@@ -120,23 +121,31 @@ elif gender[salutation] == "Mx.":
 else:
     pronoun3 = "she"
 
-print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ', an adjective pronoun with adjective color eyes greets you at the door.\n')
+print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ', an adjective pronoun with adjective ' + eyeColor[eyes] + ' eyes greets you at the door.\n')
+time.sleep(1)
 print('"Hi, you must be the new receptionist!"\n')
+time.sleep(1)
 print('"My name is ' + (firstFancyNames[owner]) + ' ' + (lastFancyNames[owner]) + ', and this is my spa and salon"')
+time.sleep(1)
 print('"Since it\'s your first day, I\'ll be showing you the ropes"')
+time.sleep(1)
 receptionist = input('"Tell me, what was your name again?" ')
 print('"So lovely to meet you, ' + receptionist + '."')
+time.sleep(1)
 print('"Ok, so it\'s just about 10 am, why don\'t you go turn on the sign?"')
+time.sleep(1)
 print('"Ah, right on time! ' + gender[salutation] + ' ' + lastNames[customer] + ' has arrived for ' + pronoun + ' Ten O\'Clock!"')
-
+time.sleep(1)
 if lastFancyNames[owner] == lastNames[customer]:
     print('"Oh, ' + pronoun3 + ' is my cousin! Treat ' + pronoun2 + ' well."')
+    time.sleep(1)
 
 
 def firstGreeting():
-    greeting = input('"Why dont you greet ' + pronoun2 + '?"').lower()
-    if 'hello' in greeting or 'hi' in greeting:
+    greeting = input('"Why don\'t you greet ' + pronoun2 + '?"').lower()
+    if 'hello' in greeting or 'hi' in greeting or 'greetings' in greeting or 'ola' in greeting:
         print('You smile nervously as ' + pronoun3 + ' approaches you.')
+        time.sleep(1)
         print('"Hello, ' + gender[salutation] + ' ' + lastNames[customer] + ', welcome to Luxe; ' + (lastFancyNames[owner]) + '."')
     else:
         print('"That\'s no way to greet a customer! Try again"')
