@@ -95,10 +95,15 @@ gender = {
 eyeColor = {
     1: 'green', 2: 'blue', 3: 'brown', 4: 'hazel', 5: 'gray'
 }
+
+eyeAdjectives = {
+    1: 'sparkling', 2: 'warm', 3: 'shining', 4: 'deep', 5:'bright'
+}
 owner = random.randint(1, 10)
 customer = random.randint(1, 20)
 salutation = random.randint(1, 5)
 eyes = random.randint(1, 5)
+adj = random.randint(1, 5)
 
 if gender[salutation] == "Mr.":
     pronoun = "his"
@@ -121,7 +126,7 @@ elif gender[salutation] == "Mx.":
 else:
     pronoun3 = "she"
 
-print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ', an adjective pronoun with adjective ' + eyeColor[eyes] + ' eyes greets you at the door.\n')
+print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ', an adjective pronoun with ' + eyeAdjectives[adj] + ' '+ eyeColor[eyes] + ' eyes greets you at the door.\n')
 time.sleep(1)
 print('"Hi, you must be the new receptionist!"\n')
 time.sleep(1)
