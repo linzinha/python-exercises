@@ -135,6 +135,13 @@ elif gender[salutation] == "Mx.":
 else:
     pronoun3 = "she"
 
+if gender[salutation] == "Mr.":
+    pronoun4 = "the man"
+elif gender[salutation] == "Mx.":
+    pronoun4 = "the customer"
+else:
+    pronoun4 = "the woman"
+
 
 print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ' ' + traits[type] +  ' ' + genderOwner[genderO] + ' with ' + eyeAdjectives[adj] + ' '+ eyeColor[eyes] + ' eyes greets you at the door.\n')
 print('"Hi, you must be the new receptionist!"\n')
@@ -159,4 +166,15 @@ def firstGreeting():
         print('"That\'s no way to greet a customer! Try again"')
         firstGreeting()
 
+def firstCustomer():
+    print((firstFancyNames[owner]) + ' leans over and kisses ' + pronoun4 + ' on each cheek.')
+    print('"' + firstNames[customer] + ' darling! And how are you this lovely day?"')
+    firstAppt = input('"' + receptionist + ', I believe ' + gender[salutation] + ' ' + lastNames[customer] + ' is here for a hair appointment, would you doublecheck the book?').lower()
+    if 'check' in firstAppt:
+        print('You take a look at the appointment book on what is now your desk, and sure enough, next to ' + gender[salutation] + ' ' + lastNames[customer] + '\'s name is a check in the box indicating ' + pronoun + ' appointment is for the hair salon.')
+    else:
+        print('You fumble around with the book for a moment, perplexed, before ' + (firstFancyNames[owner]) + ' snatches it from your hands.')
+        print('"Don\'t worry, ' + receptionist + '. You\'ll get the hang of it. Do you see here where there is a check mark next to salon? That means ' + gender[salutation] + ' ' + lastNames[customer] + ' is here for a hair appointment!"')
+
 firstGreeting()
+firstCustomer()
