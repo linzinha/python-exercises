@@ -3,14 +3,6 @@ import time
 
 salonServices = ["shampoo", "cut", "color", "treatment", "style", "nails", "facial hair", "body hair", "facial treatments", "body treatments"]
 
-haircuts = ["pixie", "crew", "asymmetric", "bangs", "bob", "mohawk", "fade", "feathered", "hime", "hi-top fade", "ivy league", "long layers", "lob", "mullet", "fashion mullet", "pageboy", "shag", "undercut"]
-
-color = ["partial highlight", "all over color", "root touch up", "full highlight", "base color + partial highlight", "base color + full highlight", "partial baylage", "root melt + lowlights", "ombre", "baylage"]
-
-treatment = ["keratin", "brazilian blowout", "permanent wave", "relaxer", "olaplex", "toner", ]
-
-hairstyles = ["bouffant", "afro", "beehive", "box braids", "updo", "chignon", "cornrows", "crown braid", "locs", "extensions", "finger waves", "french twist", "jheri curl", "liberty spikes", "natural", "pompadour"]
-
 nails = ["basic manicure", "gel manicure", "basic pedicure", "gel pedicure"]
 
 facialHair = ["lip wax", "eyebrow wax", "full face wax", "shave", "facial hair trim", "facial hair conditioning treatment"]
@@ -106,6 +98,9 @@ eyeAdjectives = {
 
 traits = {1: 'a young', 2: 'a middle-aged', 3: 'a tall', 4: 'a stylish', 5: 'an avant-garde', 6: 'a kind', 7: 'a well-dressed', 8: 'a brassy'}
 
+howRU = {1: '"Oh just lovely! Thank you for asking. It\'s a beautiful day."', 2: '"Busy busy! I wasn\'t sure if I\'d have time for my appointment today."', 3: '"Oh a bit worn down if I\'m being honest, work has been a nightmare'
+         }
+
 owner = random.randint(1, 10)
 customer = random.randint(1, 20)
 salutation = random.randint(1, 5)
@@ -143,38 +138,76 @@ else:
     pronoun4 = "the woman"
 
 
-print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ' ' + traits[type] +  ' ' + genderOwner[genderO] + ' with ' + eyeAdjectives[adj] + ' '+ eyeColor[eyes] + ' eyes greets you at the door.\n')
-print('"Hi, you must be the new receptionist!"\n')
-print('"My name is ' + (firstFancyNames[owner]) + ' ' + (lastFancyNames[owner]) + ', and this is my spa and salon"')
-print('"Since it\'s your first day, I\'ll be showing you the ropes."')
-receptionist = input('"Tell me, what was your name again?" ')
-print('"So lovely to meet you, ' + receptionist + '."')
-print('"Ok, so it\'s just about 10 am, why don\'t you go turn on the sign?"')
-print('"Ah, right on time! ' + gender[salutation] + ' ' + lastNames[customer] + ' has arrived for ' + pronoun + ' Ten O\'Clock!"')
-if lastFancyNames[owner] == lastNames[customer]:
-    print('"Oh, ' + pronoun3 + ' is my cousin! Treat ' + pronoun2 + ' well."')
-    time.sleep(1)
+# print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ' ' + traits[type] +  ' ' + genderOwner[genderO] + ' with ' + eyeAdjectives[adj] + ' '+ eyeColor[eyes] + ' eyes greets you at the door.\n')
+# print('"Hi, you must be the new receptionist!"\n')
+# print('"My name is ' + (firstFancyNames[owner]) + ' ' + (lastFancyNames[owner]) + ', and this is my spa and salon"')
+# print('"Since it\'s your first day, I\'ll be showing you the ropes."')
+# receptionist = input('"Tell me, what was your name again?" ')
+# print('"So lovely to meet you, ' + receptionist + '."')
+# print('"Ok, so it\'s just about 10 am, why don\'t you go turn on the sign?"')
+# print('"Ah, right on time! ' + gender[salutation] + ' ' + lastNames[customer] + ' has arrived for ' + pronoun + ' Ten O\'Clock!"')
+# if lastFancyNames[owner] == lastNames[customer]:
+#     print('"Oh, ' + pronoun3 + ' is my cousin! Treat ' + pronoun2 + ' well."')
+#     time.sleep(1)
+#
+#
+# def firstGreeting():
+#     greeting = input('"Why don\'t you greet ' + pronoun2 + '?"').lower()
+#     if 'hello' in greeting or 'hi' in greeting or 'greetings' in greeting or 'ola' in greeting:
+#         print('You smile nervously as ' + pronoun3 + ' approaches you.')
+#         time.sleep(1)
+#         print('"Hello, ' + gender[salutation] + ' ' + lastNames[customer] + ', welcome to Luxe; ' + (lastFancyNames[owner]) + '."')
+#     else:
+#         print('"That\'s no way to greet a customer! Try again"')
+#         firstGreeting()
+#
+# def firstCustomer():
+#     print((firstFancyNames[owner]) + ' leans over and kisses ' + pronoun4 + ' on each cheek.')
+#     print('"' + firstNames[customer] + ' darling! And how are you this lovely day?"')
+#     print('"')
+#     firstAppt = input('"' + receptionist + ', I believe ' + gender[salutation] + ' ' + lastNames[customer] + ' is here for a hair appointment, would you doublecheck the book?').lower()
+#     if 'check' in firstAppt:
+#         print('You take a look at the appointment book on what is now your desk, and sure enough, next to ' + gender[salutation] + ' ' + lastNames[customer] + '\'s name is a check in the box indicating ' + pronoun + ' appointment is for the hair salon.')
+#     else:
+#         print('You fumble around with the book for a moment, perplexed, before ' + (firstFancyNames[owner]) + ' snatches it from your hands.')
+#         print('"Don\'t worry, ' + receptionist + '. You\'ll get the hang of it. Do you see here where there is a check mark next to salon? That means ' + gender[salutation] + ' ' + lastNames[customer] + ' is here for a hair appointment!"')
+#
+
+def hairAppointment():
+    yesNo = ['no', 'no', 'yes']
+    haircuts = ["pixie", "crew", "asymmetric", "bangs", "bob", "mohawk", "fade", "feathered", "hime", "hi-top fade",
+                "ivy league", "long layers", "lob", "mullet", "fashion mullet", "pageboy", "shag", "undercut"]
+    color = ["partial highlight", "all over color", "root touch up", "full highlight", "base color + partial highlight",
+             "base color + full highlight", "partial baylage", "root melt + lowlights", "ombre", "baylage"]
+    treatment = ["keratin", "brazilian blowout", "permanent wave", "relaxer", "olaplex", "toner"]
+    hairstyles = ["bouffant", "afro", "beehive", "box braids", "updo", "chignon", "cornrows", "crown braid", "locs",
+                  "extensions", "finger waves", "french twist", "jheri curl", "liberty spikes", "natural", "pompadour"]
+    haircut = random.randint(1, 2)
+    colour = random.randint(0, 2)
+    treatments = random.randint(0, 2)
+    styles = random.randint(0, 2)
+    hairOptions = [[haircut, 'haircut'], [colour, 'color'], [treatments, 'treatments'], [styles, 'styles']]
+    print(hairOptions)
+    services = 0
+    for options in hairOptions:
+        if options[0] == 2:
+            services += 1
+            print(options[1])
+    print(services)
+    if services == 0:
+        print('haircut')
 
 
-def firstGreeting():
-    greeting = input('"Why don\'t you greet ' + pronoun2 + '?"').lower()
-    if 'hello' in greeting or 'hi' in greeting or 'greetings' in greeting or 'ola' in greeting:
-        print('You smile nervously as ' + pronoun3 + ' approaches you.')
-        time.sleep(1)
-        print('"Hello, ' + gender[salutation] + ' ' + lastNames[customer] + ', welcome to Luxe; ' + (lastFancyNames[owner]) + '."')
-    else:
-        print('"That\'s no way to greet a customer! Try again"')
-        firstGreeting()
 
-def firstCustomer():
-    print((firstFancyNames[owner]) + ' leans over and kisses ' + pronoun4 + ' on each cheek.')
-    print('"' + firstNames[customer] + ' darling! And how are you this lovely day?"')
-    firstAppt = input('"' + receptionist + ', I believe ' + gender[salutation] + ' ' + lastNames[customer] + ' is here for a hair appointment, would you doublecheck the book?').lower()
-    if 'check' in firstAppt:
-        print('You take a look at the appointment book on what is now your desk, and sure enough, next to ' + gender[salutation] + ' ' + lastNames[customer] + '\'s name is a check in the box indicating ' + pronoun + ' appointment is for the hair salon.')
-    else:
-        print('You fumble around with the book for a moment, perplexed, before ' + (firstFancyNames[owner]) + ' snatches it from your hands.')
-        print('"Don\'t worry, ' + receptionist + '. You\'ll get the hang of it. Do you see here where there is a check mark next to salon? That means ' + gender[salutation] + ' ' + lastNames[customer] + ' is here for a hair appointment!"')
 
-firstGreeting()
-firstCustomer()
+
+
+
+
+
+
+
+# firstGreeting()
+# firstCustomer()
+
+hairAppointment()
