@@ -174,7 +174,6 @@ else:
 #
 
 def hairAppointment():
-    yesNo = ['no', 'no', 'yes']
     haircuts = ["pixie", "crew", "asymmetric", "bangs", "bob", "mohawk", "fade", "feathered", "hime", "hi-top fade",
                 "ivy league", "long layers", "lob", "mullet", "fashion mullet", "pageboy", "shag", "undercut"]
     color = ["partial highlight", "all over color", "root touch up", "full highlight", "base color + partial highlight",
@@ -187,15 +186,25 @@ def hairAppointment():
     treatments = random.randint(0, 2)
     styles = random.randint(0, 2)
     hairOptions = [[haircut, 'haircut'], [colour, 'color'], [treatments, 'treatments'], [styles, 'styles']]
-    print(hairOptions)
     services = 0
+    selected = []
     for options in hairOptions:
         if options[0] == 2:
             services += 1
-            print(options[1])
-    print(services)
+            selected.append(options[1])
     if services == 0:
-        print('haircut')
+        services += 1
+        selected.append('haircut')
+    print(selected)
+    print(services)
+    if services == 1:
+        print('I would like a ' + selected[0])
+    if services == 2:
+        print('I would like a ' + selected[0] + ' and a ' + selected[1])
+    if services == 3:
+        print('I would like a ' + selected[0] + ', a ' + selected[1] + ' and a ' + selected[2])
+    if services == 4:
+        print('I would like a ' + selected[0] + ', a ' + selected[1] + ', a ' + selected[2] + ' and a ' + selected[3])
 
 
 
