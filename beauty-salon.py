@@ -3,6 +3,8 @@ import time
 
 dayIncome = 0
 tipPool = 0
+customerCount = 0
+hairCustomers = 0
 
 # sources: http://www.olehenriksenspa.com/services/
 # https://www.bareskindetroit.com/facials
@@ -119,26 +121,21 @@ else:
 #
 
 def hairAppointment():
-    treatment = ["keratin", "brazilian blowout", "permanent wave", "relaxer", "olaplex", "toner"]
-    hairstyles = ["bouffant", "afro", "beehive", "box braids", "updo", "chignon", "cornrows", "crown braid", "locs",
-                  "extensions", "finger waves", "french twist", "jheri curl", "liberty spikes", "natural", "pompadour"]
     cstChoice = random.randint(0, 2)
-    # haircut = random.randint(1, 2)
-    # treatments = random.randint(0, 2)
-    # styles = random.randint(0, 2)
-    # hairOptions = [[haircut, haircuts, 'haircut'], [colour, color, 'color'], [treatments, treatment, 'treatment'], [styles, hairstyles, 'style']]
-    # hairCustomers = 0
-    # services = 0
-    # selected = []
-    # selectedList = []
-    print("Which of our services are you interested in today?")
+    choices = ['a haircut', 'a treatment', 'to be styled']
+    global hairCustomers
+    if hairCustomers == 0:
+        print('"It\'s your first customer for the hair salon so I\'ll walk you through this one."')
+        book = input('"The first thing you need to do is check the appointment book to see what kind of service the customer is getting. ')
+        if 'check' or 'appointment' or 'book' in book:
+            print('"Ahh, ' + gender[salutation] + ' ' + lastNames[customer] + ', I see you\'re here ' + choices[cstChoice] + '."')
+    hairCustomers += 1
     if cstChoice == 0:
-        print("I'd like a haircut please!")
         hairCuts()
     elif cstChoice == 1:
-        print('I\'m here for a treatment')
+        hairTreatments()
     else:
-        print("I'm here to be styled")
+        hairstyles()
 
 
 def hairCuts(currentTab = 0, services = []):
@@ -210,11 +207,19 @@ def hairColors(currentTab = 0, services = []):
     services.append("a color")
     checkout(currentTab, services)
 
+def hairTreatments():
+    treatment = ["keratin", "brazilian blowout", "permanent wave", "relaxer", "olaplex", "toner"]
 
+def hairstyles():
+    hairstyles = ["bouffant", "afro", "beehive", "box braids", "updo", "chignon", "cornrows", "crown braid", "locs",
+                  "extensions", "finger waves", "french twist", "jheri curl", "liberty spikes", "natural", "pompadour"]
 
 def checkout (currentTab, services):
     allServices = ', '.join(services)
+    global customerCount
+    customerCount += 1
     print('"Ok great! For ' + allServices + ' your total will be ' + str(currentTab) + '!"')
+    print(customerCount)
 
     # for options in hairOptions:
     #     if options[0] == 2:
