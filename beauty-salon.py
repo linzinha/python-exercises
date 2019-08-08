@@ -30,11 +30,16 @@ bodyTreatmentEnhancements = ["eco-hin heat therapy", "detoxifying foot soak", "r
 skinTypes = ["dry", "oily", "combination"]
 skinConcerns = ["redness", "acne", "oiliness", "dryness", "wrinkles and fine lines", "uneven skin tone", "uneven texture"]
 
-prices = [30, 25, 40, 20, 20, 35, 50, 35]
+dayIncome = 0
+tipPool = 0
 
-last_week = [2, 3, 5, 8, 4, 4, 6, 2]
 
-total_price = 0
+
+# prices = [30, 25, 40, 20, 20, 35, 50, 35]
+#
+# last_week = [2, 3, 5, 8, 4, 4, 6, 2]
+#
+# total_price = 0
 
 # for price in prices:
 #     total_price += price
@@ -174,37 +179,101 @@ else:
 #
 
 def hairAppointment():
-    haircuts = ["pixie", "crew", "asymmetric", "bangs", "bob", "mohawk", "fade", "feathered", "hime", "hi-top fade",
-                "ivy league", "long layers", "lob", "mullet", "fashion mullet", "pageboy", "shag", "undercut"]
-    color = ["partial highlight", "all over color", "root touch up", "full highlight", "base color + partial highlight",
-             "base color + full highlight", "partial baylage", "root melt + lowlights", "ombre", "baylage"]
     treatment = ["keratin", "brazilian blowout", "permanent wave", "relaxer", "olaplex", "toner"]
     hairstyles = ["bouffant", "afro", "beehive", "box braids", "updo", "chignon", "cornrows", "crown braid", "locs",
                   "extensions", "finger waves", "french twist", "jheri curl", "liberty spikes", "natural", "pompadour"]
-    haircut = random.randint(1, 2)
+    cstChoice = random.randint(0, 2)
+    # haircut = random.randint(1, 2)
+    # treatments = random.randint(0, 2)
+    # styles = random.randint(0, 2)
+    # hairOptions = [[haircut, haircuts, 'haircut'], [colour, color, 'color'], [treatments, treatment, 'treatment'], [styles, hairstyles, 'style']]
+    # hairCustomers = 0
+    # services = 0
+    # selected = []
+    # selectedList = []
+    print("Which of our services are you interested in today?")
+    if cstChoice == 0:
+        print("I'd like a haircut please!")
+    elif cstChoice == 1:
+        print('I\'m here for a treatment')
+    else:
+        print("I'm here to be styled")
+    print("What about color? You'd look great as a blonde")
+
+
+def hairCuts(currentTab = 0, services = []):
+    haircuts = ["pixie", "crew", "asymmetric", "bangs", "bob", "mohawk", "fade", "feathered", "hime", "hi-top fade",
+                "ivy league", "long layers", "lob", "mullet", "fashion mullet", "pageboy", "shag", "undercut"]
+    cutPrices = [25, 25, 30, 20, 30, 20, 35, 40, 40, 35, 40, 40, 30, 25, 40, 30, 40, 25]
+    options = random.randint(0, len(haircuts)-1)
     colour = random.randint(0, 2)
-    treatments = random.randint(0, 2)
-    styles = random.randint(0, 2)
-    hairOptions = [[haircut, 'haircut'], [colour, 'color'], [treatments, 'treatments'], [styles, 'styles']]
-    services = 0
-    selected = []
-    for options in hairOptions:
-        if options[0] == 2:
-            services += 1
-            selected.append(options[1])
-    if services == 0:
-        services += 1
-        selected.append('haircut')
-    print(selected)
-    print(services)
-    if services == 1:
-        print('I would like a ' + selected[0])
-    if services == 2:
-        print('I would like a ' + selected[0] + ' and a ' + selected[1])
-    if services == 3:
-        print('I would like a ' + selected[0] + ', a ' + selected[1] + ' and a ' + selected[2])
-    if services == 4:
-        print('I would like a ' + selected[0] + ', a ' + selected[1] + ', a ' + selected[2] + ' and a ' + selected[3])
+    print("Just a cut today? You'd look really great as a blonde.")
+    if colour == 2:
+        print('"Yes, I\'ll do a color treatment as well"')
+    else:
+        print('"Not today, just the cut"')
+    print('"Ok, what kind of cut would you like?')
+    print('"I\'d like a ' + haircuts[options] + ', please')
+    print('"Ok great! That will be ' + str(cutPrices[options]) + '!"')
+    currentTab = cutPrices[options] + currentTab
+    print(currentTab)
+    services.append("a haircut")
+    checkout(currentTab, services)
+
+def hairColors(currentTab = 0, services = []):
+    color = ["partial highlight", "all over color", "root touch up", "full highlight", "base color + partial highlight",
+             "base color + full highlight", "partial baylage", "root melt + lowlights", "ombre", "baylage"]
+
+
+def checkout (currentTab, services):
+    allServices = ', '.join(services)
+    print('"Ok great! For ' + allServices + ' your total will be ' + str(currentTab) + '!"')
+
+    # for options in hairOptions:
+    #     if options[0] == 2:
+    #         services += 1
+    #         selected.append(options[2])
+    #         selectedList.append(options[1])
+    # if services == 0:
+    #     services += 1
+    #     selected.append('haircut')
+    #     selectedList.append(haircuts)
+    # newList = zip(selected, selectedList)
+    # print(selectedList)
+    # print(selected)
+    # print(services)
+    # if services == 1:
+    #     print('I would like a ' + selected[0])
+    # if services == 2:
+    #     print('I would like a ' + selected[0] + ' and a ' + selected[1])
+    # if services == 3:
+    #     print('I would like a ' + selected[0] + ', a ' + selected[1] + ' and a ' + selected[2])
+    # if services == 4:
+    #     print('I would like a ' + selected[0] + ', a ' + selected[1] + ', a ' + selected[2] + ' and a ' + selected[3])
+    # for items in newList:
+    #     if hairCustomers == 0:
+    #         ask = input('"Now would be a good time to ask the customer what kind of ' + items[0] + ' they would like." ')
+    #     if hairCustomers > 0:
+    #         ask = input('ask about ' + items[0])
+    #     if items[0] in ask:
+    #         print('"What kind of ' + items[0] + ' would you like?"')
+    #     selections = items[1]
+    #     choice = random.randint(0, (len(selections)-1))
+    #     print(selections[choice])
+    #     if items[0] == 'color':
+    #         colorTypes = ['black', 'brown', 'blonde', 'white', 'red', 'unnatural']
+    #         colors = [('black', ['Jet Black', 'Natural Black', 'Blue-Black']), ('brown', ['Dark Brown', 'Chocolate Brown', 'Medium Brown', 'Light Brown', 'Medium Ash Brown']), ('blonde', ['Light Ash Brown', 'Medium Blonde', 'Honey Blonde', 'Sandy Blonde', 'Butterscotch Blonde']), ('white', ['Ash Blonde', 'Vanilla Creme Blonde', 'Rosa Rosa']), ('red', ['Copper Red', 'Rich Copper Red', 'Dark Red Copper', 'Strawberry Blonde']), ('unnatural', ['Plum Dark Purple', 'Blue Steel', 'Green Grape', 'Mystic Turquoise', 'Pink Pearl', 'Purple Passion', 'Ruby Red', 'Ultraviolet'])]
+    #         print("And what color would you like today?")
+    #         colorFam = random.randint(0, 5)
+    #         print(colorTypes[colorFam])
+    #         colorSelect = colors[colorFam]
+    #         print(colorSelect)
+
+
+        # print(items[1])
+
+
+
 
 
 
@@ -219,4 +288,5 @@ def hairAppointment():
 # firstGreeting()
 # firstCustomer()
 
-hairAppointment()
+# hairAppointment()
+hairCuts()
