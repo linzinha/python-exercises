@@ -221,8 +221,25 @@ def hairCuts(currentTab = 0, services = []):
     checkout(currentTab, services)
 
 def hairColors(currentTab = 0, services = []):
-    color = ["partial highlight", "all over color", "root touch up", "full highlight", "base color + partial highlight",
-             "base color + full highlight", "partial baylage", "root melt + lowlights", "ombre", "baylage"]
+    colorPatterns = ["partial highlight",  "root touch up", "full highlight", "all over color", "base color + partial highlight", "base color + full highlight", "root melt + lowlights", "ombre", "baylage", "partial baylage"]
+    options = random.randint(0, len(colorPatterns) - 1)
+    colorPrices = [85, 65, 125, 85, 120, 160, 100, 125, 125, 90]
+    colorTypes = ['black', 'brown', 'blonde', 'white', 'red', 'unnatural']
+    colorOptions = random.randint(0, len(colorTypes) - 1)
+    colors = [['Jet Black', 'Natural Black', 'Blue-Black'],
+              ['Dark Brown', 'Chocolate Brown', 'Medium Brown', 'Light Brown', 'Medium Ash Brown'],
+             ['Light Ash Brown', 'Medium Blonde', 'Honey Blonde', 'Sandy Blonde', 'Butterscotch Blonde'],
+              ['Ash Blonde', 'Vanilla Creme Blonde', 'Rosa Rosa'],
+              ['Copper Red', 'Rich Copper Red', 'Dark Red Copper', 'Strawberry Blonde'],
+              ['Plum Dark Purple', 'Blue Steel', 'Green Grape', 'Mystic Turquoise', 'Pink Pearl', 'Purple Passion', 'Ruby Red', 'Ultraviolet']]
+    print('"So how would you like your hair colored today?"')
+    print('"I think I\'d like a ' + colorPatterns[options] + '"')
+    if options > 2:
+        print('"That would look amazing on you."')
+        print('"I have color swatches in black, brown, blonde, white, red, and unnatural that I can show you. What do you think?"')
+        print('"Show me the ' + str(colorTypes[colorOptions])+ ' swatches."')
+        swatchBook = ', '.join(colors[colorOptions])
+        print(swatchBook)
 
 
 def checkout (currentTab, services):
@@ -289,4 +306,4 @@ def checkout (currentTab, services):
 # firstCustomer()
 
 # hairAppointment()
-hairCuts()
+hairColors()
