@@ -226,6 +226,7 @@ def hairColors(currentTab = 0, services = []):
     colorPrices = [85, 65, 125, 85, 120, 160, 100, 125, 125, 90]
     colorTypes = ['black', 'brown', 'blonde', 'white', 'red', 'unnatural']
     colorOptions = random.randint(0, len(colorTypes) - 1)
+    colorOptions2 = random.randint(0, len(colorTypes) - 1)
     colors = [['Jet Black', 'Natural Black', 'Blue-Black'],
               ['Dark Brown', 'Chocolate Brown', 'Medium Brown', 'Light Brown', 'Medium Ash Brown'],
              ['Light Ash Brown', 'Medium Blonde', 'Honey Blonde', 'Sandy Blonde', 'Butterscotch Blonde'],
@@ -235,11 +236,35 @@ def hairColors(currentTab = 0, services = []):
     print('"So how would you like your hair colored today?"')
     print('"I think I\'d like a ' + colorPatterns[options] + '"')
     if options > 2:
-        print('"That would look amazing on you."')
+        twoTone = random.randint(0, 1)
+        if options > 6:
+            print('"That would look amazing on you."')
+            print("Do you want to use two colors or fade it to your current hair color?")
+            if twoTone == 0:
+                print("Fade into my natural color")
+            else:
+                print('Two colors please!')
+        elif options > 2:
+            print('"That would look amazing on you."')
         print('"I have color swatches in black, brown, blonde, white, red, and unnatural that I can show you. What do you think?"')
         print('"Show me the ' + str(colorTypes[colorOptions])+ ' swatches."')
+        if twoTone == 1 and options > 6:
+            print("And what would you like for your second color?")
+            if colorOptions == colorOptions2:
+                print('Just the one book is fine!')
+            print('"Show me the ' + str(colorTypes[colorOptions2]) + ' swatches."')
         swatchBook = ', '.join(colors[colorOptions])
-        print(swatchBook)
+        print('"For the ' + str(colorTypes[colorOptions]) + ' colors, we have ' + swatchBook + '."')
+        if twoTone == 1 and options > 6:
+            print('"And for the ' + str(colorTypes[colorOptions2]) + ' colors, we have ' + swatchBook + '."')
+        swatchSelect = random.randint(0, len(colors[colorOptions]) - 1)
+        swatchSelect2 = random.randint(0, len(colors[colorOptions]) - 1)
+        print((colors[colorOptions])[swatchSelect])
+        if twoTone == 1 and options > 6:
+            print((colors[colorOptions2])[swatchSelect2])
+    else:
+        print('"How wonderful!"')
+
 
 
 def checkout (currentTab, services):
