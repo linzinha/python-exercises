@@ -5,6 +5,7 @@ dayIncome = 0
 tipPool = 0
 customerCount = 0
 hairCustomers = 0
+serviceType = []
 
 # sources: http://www.olehenriksenspa.com/services/
 # https://www.bareskindetroit.com/facials
@@ -64,6 +65,7 @@ eyes = random.randint(1, 5)
 adj = random.randint(1, 5)
 genderO = random.randint(1, 3)
 typeAdj = random.randint(1, 8)
+newCustomer = random.randint(1, 20)
 
 if gender[salutation] == "Mr.":
     pronoun = "his"
@@ -140,6 +142,7 @@ def hairAppointment():
     cstChoice = random.randint(0, 2)
     choices = ['a haircut', 'a treatment', 'to be styled']
     global hairCustomers
+    serviceType.append('hair')
     if hairCustomers == 0:
         print('"It\'s your first day so I\'ll walk you through the interactions."')
         book = input(
@@ -147,7 +150,6 @@ def hairAppointment():
         if 'check' or 'appointment' or 'book' in book:
             print('"Ahh, ' + gender[salutation] + ' ' + lastNames[customer] + ', I see you\'re here ' + choices[
                 cstChoice] + '."')
-    hairCustomers += 1
     if cstChoice == 0:
         hairCuts()
     elif cstChoice == 1:
@@ -206,7 +208,7 @@ def hairColors(currentTab=0, services=[]):
                 print('"Yes! Two colors please!" ' + firstNames[customer] + ' grins."')
         elif options > 2:
             print('"Absolutely!" you smile. "A ' + colorPatterns[options] + ' it is."')
-        print('"Ok darling, "' + genderOwner[genderO] + (lastFancyNames[
+        print('"Ok darling, "' + genderOwner[genderO] + ' ' + (lastFancyNames[
             owner]) + ' smiles to the customer. "I have color swatches in black, brown, blonde, white, red, and unnatural that I can show you. What do you think?"')
         print('"Show me the ' + str(colorTypes[colorOptions]) + ' swatches."')
         if twoTone == 1 and options > 6:
@@ -217,7 +219,7 @@ def hairColors(currentTab=0, services=[]):
             print('"Show me the ' + str(colorTypes[colorOptions2]) + ' swatches."')
         swatchBook = ', '.join(colors[colorOptions])
         input(genderOwner[genderO] + (lastFancyNames[
-            owner]) + ' turns to you and says, "In that bottom drawer you\'ll find our color swatches. Do fetch us the ones we will need"')
+            owner]) + ' ' + ' turns to you and says, "In that bottom drawer you\'ll find our color swatches. Do fetch us the ones we will need"')
         print('"For the ' + str(colorTypes[colorOptions]) + ' colors, we have ' + swatchBook + '."')
         if twoTone == 1 and options > 6:
             print('"And for the ' + str(colorTypes[colorOptions2]) + ' colors, we have ' + swatchBook + '."')
@@ -247,13 +249,14 @@ def checkout(currentTab, services):
     allServices = ', '.join(services)
     global customerCount
     customerCount += 1
+    print(serviceType)
+    print(services)
     print('"Ok great! For ' + allServices + ' your total will be ' + str(currentTab) + '!"')
     print(customerCount)
     nextCustomer()
 
 
 def nextCustomer():
-    newCustomer = random.randint(1, 20)
     print('A few moments later, the door opens again. It looks like you have your next customer!')
     print('"Hi, my name is ' + firstNames[newCustomer] + ', and I\'m here for my appointment."')
     hairAppointment()
