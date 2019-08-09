@@ -32,7 +32,7 @@ gender = {
 }
 
 genderOwner = {
-    1: 'man', 2: 'woman', 3: 'person'
+    1: 'Mr.', 2: 'Mrs.', 3: 'Ms.', 4: 'Miss', 5: 'Mx.'
 }
 
 eyeColor = {
@@ -84,8 +84,14 @@ elif gender[salutation] == "Mx.":
 else:
     pronoun4 = "the woman"
 
+if genderOwner[genderO] == "Mr.":
+    pronounO = "man"
+elif genderOwner[genderO] == "Mx.":
+    pronounO = "person"
+else:
+    pronounO = "woman"
 
-# print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ' ' + traits[type] +  ' ' + genderOwner[genderO] + ' with ' + eyeAdjectives[adj] + ' '+ eyeColor[eyes] + ' eyes greets you at the door.\n')
+# print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ' ' + traits[type] +  ' ' + genderOwner[pronounO] + ' with ' + eyeAdjectives[adj] + ' '+ eyeColor[eyes] + ' eyes greets you at the door.\n')
 # print('"Hi, you must be the new receptionist!"\n')
 # print('"My name is ' + (firstFancyNames[owner]) + ' ' + (lastFancyNames[owner]) + ', and this is my spa and salon"')
 # print('"Since it\'s your first day, I\'ll be showing you the ropes."')
@@ -125,7 +131,7 @@ def hairAppointment():
     choices = ['a haircut', 'a treatment', 'to be styled']
     global hairCustomers
     if hairCustomers == 0:
-        print('"It\'s your first customer for the hair salon so I\'ll walk you through this one."')
+        print('"It\'s your first day so I\'ll walk you through the interactions."')
         book = input('"The first thing you need to do is check the appointment book to see what kind of service the customer is getting. ')
         if 'check' or 'appointment' or 'book' in book:
             print('"Ahh, ' + gender[salutation] + ' ' + lastNames[customer] + ', I see you\'re here ' + choices[cstChoice] + '."')
@@ -133,9 +139,11 @@ def hairAppointment():
     if cstChoice == 0:
         hairCuts()
     elif cstChoice == 1:
-        hairTreatments()
+        hairCuts()
+        # hairTreatments()
     else:
-        hairstyles()
+        hairCuts()
+        # hairstyles()
 
 
 def hairCuts(currentTab = 0, services = []):
@@ -144,19 +152,17 @@ def hairCuts(currentTab = 0, services = []):
     cutPrices = [25, 25, 30, 20, 30, 20, 35, 40, 40, 35, 40, 40, 30, 25, 40, 30, 40, 25]
     options = random.randint(0, len(haircuts)-1)
     colour = random.randint(0, 2)
-    print("Just a cut today? You'd look really great as a blonde.")
-    if colour == 2:
-        print('"Yes, I\'ll do a color treatment as well"')
-    else:
-        print('"Not today, just the cut"')
-    print('"Ok, what kind of cut would you like?')
+    input('"First, find out what kind of haircut the customer would like."')
     print('"I\'d like a ' + haircuts[options] + ', please')
     currentTab = cutPrices[options] + currentTab
     services.append("a haircut")
+    input('"You should ask ' + firstNames[customer] + ' if ' + pronoun3 + ' would like a color as well."')
     if colour == 2:
         hairColors(currentTab, services)
     else:
+        print('"Not today, just the cut"')
         checkout(currentTab, services)
+
 
 def hairColors(currentTab = 0, services = []):
     colorPatterns = ["partial highlight",  "root touch up", "full highlight", "all over color", "base color + partial highlight", "base color + full highlight", "root melt + lowlights", "ombre", "baylage", "partial baylage"]
@@ -171,27 +177,29 @@ def hairColors(currentTab = 0, services = []):
               ['Ash Blonde', 'Vanilla Creme Blonde', 'Rosa Rosa'],
               ['Copper Red', 'Rich Copper Red', 'Dark Red Copper', 'Strawberry Blonde'],
               ['Plum Dark Purple', 'Blue Steel', 'Green Grape', 'Mystic Turquoise', 'Pink Pearl', 'Purple Passion', 'Ruby Red', 'Ultraviolet']]
-    print('"So how would you like your hair colored today?"')
     print('"I think I\'d like a ' + colorPatterns[options] + '"')
     if options > 2:
         twoTone = random.randint(0, 1)
         if options > 6:
-            print('"That would look amazing on you."')
-            print("Do you want to use two colors or fade it to your current hair color?")
+            print('"Ohh, you\'ve got good taste!" You say to the customer')
+            input('"Now would be a good time to find out if ' + firstNames[customer] + ' wants to use a second color or not."')
             if twoTone == 0:
-                print("Fade into my natural color")
+                print('"No, not today." said ' + firstNames[customer] + '.')
+                print('"I think I just want it to fade into my natural color"')
             else:
-                print('Two colors please!')
+                print('"Yes! Two colors please!" ' + firstNames[customer] + ' grins."')
         elif options > 2:
-            print('"That would look amazing on you."')
-        print('"I have color swatches in black, brown, blonde, white, red, and unnatural that I can show you. What do you think?"')
+            print('"Absolutely!" you smile. "A ' + colorPatterns[options] + ' it is."')
+        print('"Ok darling, "' + genderOwner[genderO] + (lastFancyNames[owner]) + ' smiles to the customer. "I have color swatches in black, brown, blonde, white, red, and unnatural that I can show you. What do you think?"')
         print('"Show me the ' + str(colorTypes[colorOptions])+ ' swatches."')
         if twoTone == 1 and options > 6:
+            input('How about asking about the second color? ')
             print("And what would you like for your second color?")
             if colorOptions == colorOptions2:
                 print('Just the one book is fine!')
             print('"Show me the ' + str(colorTypes[colorOptions2]) + ' swatches."')
         swatchBook = ', '.join(colors[colorOptions])
+        input( genderOwner[genderO] + (lastFancyNames[owner]) + ' turns to you and says, "In that bottom drawer you\'ll find our color swatches. Do fetch us the ones we will need"')
         print('"For the ' + str(colorTypes[colorOptions]) + ' colors, we have ' + swatchBook + '."')
         if twoTone == 1 and options > 6:
             print('"And for the ' + str(colorTypes[colorOptions2]) + ' colors, we have ' + swatchBook + '."')
