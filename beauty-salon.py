@@ -12,19 +12,25 @@ hairCustomers = 0
 # https://globalwellnesssummit.com/wp-content/uploads/Industry-Research/Asia-Pacific/2014-colliers-international-uae-spa-market.pdf
 
 firstFancyNames = {
-    1: "Andre", 2: "Michael", 3: "Jermaine", 4: "Susan", 5: "Stacey", 6: "Dominique", 7: "Alejandro", 8: "Ali", 9: "Fatima", 10: "Camila"
+    1: "Andre", 2: "Michael", 3: "Jermaine", 4: "Susan", 5: "Stacey", 6: "Dominique", 7: "Alejandro", 8: "Ali",
+    9: "Fatima", 10: "Camila"
 }
 
 lastFancyNames = {
-    1: "Lauder", 2: "Beauregard", 3: "Beaudelaire", 4: "Astor", 5: "Urbinati", 6: "Canalé", 7: "Lecompte", 8: "Hatzis", 9: "Atelier", 10: "Galván"
+    1: "Lauder", 2: "Beauregard", 3: "Baudelaire", 4: "Astor", 5: "Urbinati", 6: "Canalé", 7: "Lecompte", 8: "Hatzis",
+    9: "Atelier", 10: "Galván"
 }
 
 firstNames = {
-    1: "Tim", 2: "Michael", 3: "Jermaine", 4: "Susan", 5: "Stacey", 6: "Dominique", 7: "Alejandro", 8: "Ali", 9: "Fatima", 10: "Camila", 11: "Mohammed", 12: "Liam", 13: "Noah", 14: "Francesco", 15: "Jose", 16: "Maryam", 17: "Ximena", 18: "Emma", 19: "Eleni", 20: "Isabella"
+    1: "Tim", 2: "Michael", 3: "Jermaine", 4: "Susan", 5: "Stacey", 6: "Dominique", 7: "Alejandro", 8: "Ali",
+    9: "Fatima", 10: "Camila", 11: "Mohammad", 12: "Liam", 13: "Noah", 14: "Francesco", 15: "Jose", 16: "Maryam",
+    17: "Ximena", 18: "Emma", 19: "Eleni", 20: "Isabella"
 }
 
 lastNames = {
-    1: "Smith", 2: "Wang", 3: "Johnson", 4: "Li", 5: "Garcia", 6: "Patel", 7: "Miller", 8: "Nguyen", 9: "Atelier", 10: "Galván", 11: "Lauder", 12: "Astor", 13: "Lecompte", 14: "Stevenson", 15: "Lauren", 16: "Jones", 17: "Brings", 18: "Sarra", 19: "Reda", 20: "Summ"
+    1: "Smith", 2: "Wang", 3: "Johnson", 4: "Li", 5: "Garcia", 6: "Patel", 7: "Miller", 8: "Nguyen", 9: "Atelier",
+    10: "Galván", 11: "Lauder", 12: "Astor", 13: "Lecompte", 14: "Stevenson", 15: "Lauren", 16: "Jones", 17: "Brings",
+    18: "Sarra", 19: "Reda", 20: "Summ"
 }
 
 gender = {
@@ -40,12 +46,15 @@ eyeColor = {
 }
 
 eyeAdjectives = {
-    1: 'sparkling', 2: 'warm', 3: 'shining', 4: 'deep', 5:'bright'
+    1: 'sparkling', 2: 'warm', 3: 'shining', 4: 'deep', 5: 'bright'
 }
 
-traits = {1: 'a young', 2: 'a middle-aged', 3: 'a tall', 4: 'a stylish', 5: 'an avant-garde', 6: 'a kind', 7: 'a well-dressed', 8: 'a brassy'}
+traits = {1: 'a young', 2: 'a middle-aged', 3: 'a tall', 4: 'a stylish', 5: 'an avant-garde', 6: 'a kind',
+          7: 'a well-dressed', 8: 'a brassy'}
 
-howRU = {1: '"Oh just lovely! Thank you for asking. It\'s a beautiful day."', 2: '"Busy busy! I wasn\'t sure if I\'d have time for my appointment today."', 3: '"Oh a bit worn down if I\'m being honest, work has been a nightmare'
+howRU = {1: '"Oh just lovely! Thank you for asking. It\'s a beautiful day."',
+         2: '"Busy busy! I wasn\'t sure if I\'d have time for my appointment today."',
+         3: '"Oh a bit worn down if I\'m being honest, work has been a nightmare'
          }
 
 owner = random.randint(1, 10)
@@ -54,7 +63,7 @@ salutation = random.randint(1, 5)
 eyes = random.randint(1, 5)
 adj = random.randint(1, 5)
 genderO = random.randint(1, 3)
-type = random.randint(1, 8)
+typeAdj = random.randint(1, 8)
 
 if gender[salutation] == "Mr.":
     pronoun = "his"
@@ -91,7 +100,8 @@ elif genderOwner[genderO] == "Mx.":
 else:
     pronounO = "woman"
 
-# print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ' ' + traits[type] +  ' ' + genderOwner[pronounO] + ' with ' + eyeAdjectives[adj] + ' '+ eyeColor[eyes] + ' eyes greets you at the door.\n')
+
+# print('\nAs you walk into Luxe; ' + (lastFancyNames[owner]) + ' ' + traits[typeAdj] +  ' ' + genderOwner[pronounO] + ' with ' + eyeAdjectives[adj] + ' '+ eyeColor[eyes] + ' eyes greets you at the door.\n')
 # print('"Hi, you must be the new receptionist!"\n')
 # print('"My name is ' + (firstFancyNames[owner]) + ' ' + (lastFancyNames[owner]) + ', and this is my spa and salon"')
 # print('"Since it\'s your first day, I\'ll be showing you the ropes."')
@@ -132,9 +142,11 @@ def hairAppointment():
     global hairCustomers
     if hairCustomers == 0:
         print('"It\'s your first day so I\'ll walk you through the interactions."')
-        book = input('"The first thing you need to do is check the appointment book to see what kind of service the customer is getting. ')
+        book = input(
+            '"The first thing you need to do is check the appointment book to see what kind of service the customer is getting. ')
         if 'check' or 'appointment' or 'book' in book:
-            print('"Ahh, ' + gender[salutation] + ' ' + lastNames[customer] + ', I see you\'re here ' + choices[cstChoice] + '."')
+            print('"Ahh, ' + gender[salutation] + ' ' + lastNames[customer] + ', I see you\'re here ' + choices[
+                cstChoice] + '."')
     hairCustomers += 1
     if cstChoice == 0:
         hairCuts()
@@ -146,11 +158,11 @@ def hairAppointment():
         # hairstyles()
 
 
-def hairCuts(currentTab = 0, services = []):
+def hairCuts(currentTab=0, services=[]):
     haircuts = ["pixie", "crew", "asymmetric", "bangs", "bob", "mohawk", "fade", "feathered", "hime", "hi-top fade",
                 "ivy league", "long layers", "lob", "mullet", "fashion mullet", "pageboy", "shag", "undercut"]
     cutPrices = [25, 25, 30, 20, 30, 20, 35, 40, 40, 35, 40, 40, 30, 25, 40, 30, 40, 25]
-    options = random.randint(0, len(haircuts)-1)
+    options = random.randint(0, len(haircuts) - 1)
     colour = random.randint(0, 2)
     input('"First, find out what kind of haircut the customer would like."')
     print('"I\'d like a ' + haircuts[options] + ', please')
@@ -164,8 +176,10 @@ def hairCuts(currentTab = 0, services = []):
         checkout(currentTab, services)
 
 
-def hairColors(currentTab = 0, services = []):
-    colorPatterns = ["partial highlight",  "root touch up", "full highlight", "all over color", "base color + partial highlight", "base color + full highlight", "root melt + lowlights", "ombre", "baylage", "partial baylage"]
+def hairColors(currentTab=0, services=[]):
+    colorPatterns = ["partial highlight", "root touch up", "full highlight", "all over color",
+                     "base color + partial highlight", "base color + full highlight", "root melt + lowlights", "ombre",
+                     "baylage", "partial baylage"]
     options = random.randint(0, len(colorPatterns) - 1)
     colorPrices = [85, 65, 125, 85, 120, 160, 100, 125, 125, 90]
     colorTypes = ['black', 'brown', 'blonde', 'white', 'red', 'unnatural']
@@ -173,16 +187,18 @@ def hairColors(currentTab = 0, services = []):
     colorOptions2 = random.randint(0, len(colorTypes) - 1)
     colors = [['Jet Black', 'Natural Black', 'Blue-Black'],
               ['Dark Brown', 'Chocolate Brown', 'Medium Brown', 'Light Brown', 'Medium Ash Brown'],
-             ['Light Ash Brown', 'Medium Blonde', 'Honey Blonde', 'Sandy Blonde', 'Butterscotch Blonde'],
+              ['Light Ash Brown', 'Medium Blonde', 'Honey Blonde', 'Sandy Blonde', 'Butterscotch Blonde'],
               ['Ash Blonde', 'Vanilla Creme Blonde', 'Rosa Rosa'],
               ['Copper Red', 'Rich Copper Red', 'Dark Red Copper', 'Strawberry Blonde'],
-              ['Plum Dark Purple', 'Blue Steel', 'Green Grape', 'Mystic Turquoise', 'Pink Pearl', 'Purple Passion', 'Ruby Red', 'Ultraviolet']]
+              ['Plum Dark Purple', 'Blue Steel', 'Green Grape', 'Mystic Turquoise', 'Pink Pearl', 'Purple Passion',
+               'Ruby Red', 'Ultraviolet']]
     print('"I think I\'d like a ' + colorPatterns[options] + '"')
     if options > 2:
         twoTone = random.randint(0, 1)
         if options > 6:
             print('"Ohh, you\'ve got good taste!" You say to the customer')
-            input('"Now would be a good time to find out if ' + firstNames[customer] + ' wants to use a second color or not."')
+            input('"Now would be a good time to find out if ' + firstNames[
+                customer] + ' wants to use a second color or not."')
             if twoTone == 0:
                 print('"No, not today." said ' + firstNames[customer] + '.')
                 print('"I think I just want it to fade into my natural color"')
@@ -190,8 +206,9 @@ def hairColors(currentTab = 0, services = []):
                 print('"Yes! Two colors please!" ' + firstNames[customer] + ' grins."')
         elif options > 2:
             print('"Absolutely!" you smile. "A ' + colorPatterns[options] + ' it is."')
-        print('"Ok darling, "' + genderOwner[genderO] + (lastFancyNames[owner]) + ' smiles to the customer. "I have color swatches in black, brown, blonde, white, red, and unnatural that I can show you. What do you think?"')
-        print('"Show me the ' + str(colorTypes[colorOptions])+ ' swatches."')
+        print('"Ok darling, "' + genderOwner[genderO] + (lastFancyNames[
+            owner]) + ' smiles to the customer. "I have color swatches in black, brown, blonde, white, red, and unnatural that I can show you. What do you think?"')
+        print('"Show me the ' + str(colorTypes[colorOptions]) + ' swatches."')
         if twoTone == 1 and options > 6:
             input('How about asking about the second color? ')
             print("And what would you like for your second color?")
@@ -199,7 +216,8 @@ def hairColors(currentTab = 0, services = []):
                 print('Just the one book is fine!')
             print('"Show me the ' + str(colorTypes[colorOptions2]) + ' swatches."')
         swatchBook = ', '.join(colors[colorOptions])
-        input( genderOwner[genderO] + (lastFancyNames[owner]) + ' turns to you and says, "In that bottom drawer you\'ll find our color swatches. Do fetch us the ones we will need"')
+        input(genderOwner[genderO] + (lastFancyNames[
+            owner]) + ' turns to you and says, "In that bottom drawer you\'ll find our color swatches. Do fetch us the ones we will need"')
         print('"For the ' + str(colorTypes[colorOptions]) + ' colors, we have ' + swatchBook + '."')
         if twoTone == 1 and options > 6:
             print('"And for the ' + str(colorTypes[colorOptions2]) + ' colors, we have ' + swatchBook + '."')
@@ -215,19 +233,30 @@ def hairColors(currentTab = 0, services = []):
     services.append("a color")
     checkout(currentTab, services)
 
-def hairTreatments():
+
+def hairTreatments(currentTab=0, services=[]):
     treatment = ["keratin", "brazilian blowout", "permanent wave", "relaxer", "olaplex", "toner"]
+
 
 def hairstyles():
     hairstyles = ["bouffant", "afro", "beehive", "box braids", "updo", "chignon", "cornrows", "crown braid", "locs",
                   "extensions", "finger waves", "french twist", "jheri curl", "liberty spikes", "natural", "pompadour"]
 
-def checkout (currentTab, services):
+
+def checkout(currentTab, services):
     allServices = ', '.join(services)
     global customerCount
     customerCount += 1
     print('"Ok great! For ' + allServices + ' your total will be ' + str(currentTab) + '!"')
     print(customerCount)
+    nextCustomer()
+
+
+def nextCustomer():
+    newCustomer = random.randint(1, 20)
+    print('A few moments later, the door opens again. It looks like you have your next customer!')
+    print('"Hi, my name is ' + firstNames[newCustomer] + ', and I\'m here for my appointment."')
+    hairAppointment()
 
     # for options in hairOptions:
     #     if options[0] == 2:
@@ -268,30 +297,28 @@ def checkout (currentTab, services):
     #         print(colorTypes[colorFam])
     #         colorSelect = colors[colorFam]
     #         print(colorSelect)
-
-
-        # print(items[1])
-
-
-
-
+    # print(items[1])
 
 
 # firstGreeting()
 # firstCustomer()
-
 # hairAppointment()
 hairAppointment()
 
-salonServices = ["shampoo", "cut", "color", "treatment", "style", "nails", "facial hair", "body hair", "facial treatments", "body treatments"]
+salonServices = ["shampoo", "cut", "color", "treatment", "style", "nails", "facial hair", "body hair",
+                 "facial treatments", "body treatments"]
 
 nails = ["basic manicure", "gel manicure", "basic pedicure", "gel pedicure"]
 
-facialHair = ["lip wax", "eyebrow wax", "full face wax", "shave", "facial hair trim", "facial hair conditioning treatment"]
+facialHair = ["lip wax", "eyebrow wax", "full face wax", "shave", "facial hair trim",
+              "facial hair conditioning treatment"]
 
-bodyHair = ["bikini", "brazilian", "underarm", "shoulders", "stomach", "buttocks", "half legs", "full legs", "half arms", "full arms", "chest", "back", "stomach strip", "chest and stomach", "back and shoulders", "full body"]
+bodyHair = ["bikini", "brazilian", "underarm", "shoulders", "stomach", "buttocks", "half legs", "full legs",
+            "half arms", "full arms", "chest", "back", "stomach strip", "chest and stomach", "back and shoulders",
+            "full body"]
 
-facialTreatment = ["deep pore cleansing facial", "brightening facial", "clarity complexion treatment", "red carpet facial", "advanced hydrafacial", "rejuvenation treatment", "opulence treatment"]
+facialTreatment = ["deep pore cleansing facial", "brightening facial", "clarity complexion treatment",
+                   "red carpet facial", "advanced hydrafacial", "rejuvenation treatment", "opulence treatment"]
 
 facialTreatmentEnhancements = ["healing jade treatment"]
 
@@ -299,18 +326,22 @@ lightTherapies = ["micro photo treatment", "lhe photo rejuvenation", "lhe acne",
 
 peels = ["vi peel", "vi acne peel", "modified jessner peel", "cosmederm 50% glycolic peel"]
 
-spaRituals = ["signature clarifying spa ritual", "organic euphoria spa ritual", "head to toe spa ritual", "transformational spa ritual"]
+spaRituals = ["signature clarifying spa ritual", "organic euphoria spa ritual", "head to toe spa ritual",
+              "transformational spa ritual"]
 
-bodyCocktail = ["cucumber honey body cocktail", "mineral mud body cocktail", "warm lavender body cocktail", "organic moroccan earth body cocktail"]
+bodyCocktail = ["cucumber honey body cocktail", "mineral mud body cocktail", "warm lavender body cocktail",
+                "organic moroccan earth body cocktail"]
 
 saltSugarSctubs = ["exotic rose + jasmine", "the greek", "the Moroccan", "traditional sea salt scrub"]
 
-massage = ["return to nature", "manly-sage", "four handed", "ultimate relax", "hot stone", "herbal heat", "craniosacral", "thai", "shiatsu", "swedish", ]
+massage = ["return to nature", "manly-sage", "four handed", "ultimate relax", "hot stone", "herbal heat",
+           "craniosacral", "thai", "shiatsu", "swedish", ]
 
 bodyTreatmentEnhancements = ["eco-hin heat therapy", "detoxifying foot soak", "reflexology", "hot stone enhancement"]
 
 skinTypes = ["dry", "oily", "combination"]
-skinConcerns = ["redness", "acne", "oiliness", "dryness", "wrinkles and fine lines", "uneven skin tone", "uneven texture"]
+skinConcerns = ["redness", "acne", "oiliness", "dryness", "wrinkles and fine lines", "uneven skin tone",
+                "uneven texture"]
 
 # prices = [30, 25, 40, 20, 20, 35, 50, 35]
 #
